@@ -1,36 +1,8 @@
-import { ApolloServer, gql } from 'apollo-server-micro'
+import { ApolloServer} from 'apollo-server-micro'
 import Cors from "micro-cors";
+import { typeDefs } from '../../apollo/type_defs'
+import { resolvers } from "../../apollo/resolvers"
 
-const persons = [
-  {
-      name: "Midu",
-      city: "Barcelona"
-  },
-  {
-      name: "Youseff",
-      city: "Mataro"
-  },
-  {
-      name: "Itzi",
-      city: "Ibiza"
-  }
-]
-
-const typeDefs = gql`
-  type Person {
-    name: String!
-    city: String!
-  }
-  type Query {
-    allPersons: [Person]!
-  }
-`
-
-const resolvers = {
-  Query: {
-    allPersons: () => persons
-  },
-}
 
 const cors = Cors();
 
