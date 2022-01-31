@@ -7,5 +7,6 @@ export const typeDefs = gql`
   }
   type Query {
     allPersons: [Person]!
+    findPerson(name: String!) : Person
   }
 `

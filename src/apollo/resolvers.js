@@ -15,6 +15,11 @@ const persons = [
 
 export const resolvers = {
     Query: {
-      allPersons: () => persons
+      allPersons: () => persons,
+      findPerson: (root, args) => {
+        const {name} = args
+        return persons.find(person => person.name === name)
+        }
     },
+    
 }

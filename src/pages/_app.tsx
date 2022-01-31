@@ -11,7 +11,7 @@ const client = new ApolloClient({
       uri: "http://localhost:3000/api/graphql"
   })
 })
-
+/*
 const query = gql`
   query ViewerQuery {
     allPersons{
@@ -22,7 +22,7 @@ const query = gql`
 client.query({ query: query}).then(res => {
   console.log(res.data)
 })
-
+*/
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ApolloProvider client={client}>
