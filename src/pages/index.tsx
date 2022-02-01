@@ -5,11 +5,6 @@ import Link from 'next/link'
 import { gql,useLazyQuery,useQuery} from '@apollo/client'
 import { useState, useEffect } from 'react'
 
-//useLazyQuery : hara la peticion cuando ocurra un evento
-
-//findPersonByName : es un nombre inventado para la query, puede ser cualquier otro nombre
-
-//findPerson() es la query y el resolver creado el cual tiene la funcion de busca los datos de una person apartir del nombre
 const FIND_PERSON = gql`
   query findPersonByName($nameToSearch: String!) {
     findPerson(name: $nameToSearch){
@@ -27,14 +22,9 @@ const ALL_PERSONS = gql`
 `
 
 const Home: NextPage = () => {
-  //useQuery: lo que hace es que en cuanto se renderiza hace la peticion
-  //para controlar cuando se hace la peticion podemos usar useLazyQuery
   const {data,error,loading} = useQuery(ALL_PERSONS);
   const [getPerson, result] = useLazyQuery(FIND_PERSON);
-  //useLazyQuery: devolve un array de dos posiciones:
-  // En la primera posicion es cuando queremos activar la consulta (getPerson)
-  // la segunda posicion seria el resultado (result)
-
+  
   const [person, setPerson] = useState(null);
   
   const showPerson = name => {
