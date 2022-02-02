@@ -1,3 +1,5 @@
+import Home from "../models/home"
+import "../utils/mongoose"
 const persons = [
     {
         name: "Midu",
@@ -12,13 +14,13 @@ const persons = [
         city: "Ibiza"
     }
   ];
-
 export const resolvers = {
     Query: {
-      allPersons: () => persons,
-      findPerson: (root, args) => {
+        personCount: () => Home.collection.countDocuments(),
+        allPersons: async(root,args) => Home.find({}),
+        findPerson: (root, args) => {
         const {name} = args
-        return persons.find(person => person.name === name)
+        return Home.findOne({name})
         }
     },
     

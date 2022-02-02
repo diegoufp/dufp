@@ -6,6 +6,7 @@ export const typeDefs = gql`
     city: String!
   }
   type Query {
+    personCount: Int!
     allPersons: [Person]!
     findPerson(name: String!) : Person
   }

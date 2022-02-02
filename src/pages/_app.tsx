@@ -3,10 +3,9 @@ import type { AppProps } from 'next/app';
 import {ApolloClient,ApolloProvider,InMemoryCache,HttpLink,gql} from "@apollo/client";
 
 const client = new ApolloClient({
-  connectToDevTools: true,
   cache: new InMemoryCache(),
   link: new HttpLink({
-      uri: "http://localhost:3000/api/graphql"
+      uri: process.env.URI_CLIENT
   })
 })
 
