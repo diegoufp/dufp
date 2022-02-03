@@ -14,6 +14,16 @@ export const typeDefs = gql`
     lang: String!
   }
 
+  type InfoSkills{
+    img: String!
+    title: String!
+  }
+
+  type Skills{
+    _id: String
+    skill: InfoSkills!
+  }
+
   type Nav{
     _id: String
     nav: NavLang!
@@ -21,6 +31,7 @@ export const typeDefs = gql`
   
   type Query{
     allNav: [Nav]!
+    allSkills: [Skills]!
     findNavLang(lang: Lang): Nav!
   }
   type Mutation{
@@ -31,6 +42,9 @@ export const typeDefs = gql`
       contact: String!
       lang: String!
     ): Nav
+    addSkill(
+      img: String!
+      title: String!): Skills
   }
 
 `

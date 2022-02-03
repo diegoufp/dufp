@@ -7,6 +7,10 @@ const headerSchema = new Schema({
         portfolio: String,
         contact: String,
         lang: String
+    },
+    skill: {
+        img: String,
+        title: String
     }
 })
 
