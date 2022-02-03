@@ -9,6 +9,13 @@ export const resolvers = {
             return Header.findOne({"nav.lang":args.lang})
         },
         allSkills: async (root,args) => Header.find({skill:{$exists: true}})
+        ,
+        findAboutMeLang: async (root,args) => {
+            return Header.findOne({"aboutMe.lang": args.lang})
+        },
+        findPortfolioLang: async(root,args) => {
+            return Header.findOne({$and:[{"portfolio.name": args.name},{"portfolio.lang": args.lang}]})
+        }
     },
     Mutation: {
         addNavLang: (root, args) => {
@@ -18,6 +25,14 @@ export const resolvers = {
         addSkill:(root,args) => {
             const newSkill = new Header({skill:{...args}})
             return newSkill.save()
+        },
+        addAboutMeLang: (root,args) => {
+            const newAboutMe = new Header({aboutMe:{...args}})
+            return newAboutMe.save()
+        },
+        addPortfolioLang: (root,args) => {
+            const newPortfolio = new Header({portfolio:{...args}})
+            return newPortfolio.save()
         }
     }
 

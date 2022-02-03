@@ -11,12 +11,38 @@ export const typeDefs = gql`
     skills: String!
     portfolio: String!
     contact: String!
-    lang: String!
+    lang: Lang!
   }
 
   type InfoSkills{
     img: String!
     title: String!
+  }
+
+  type InfoAboutMe{
+    presentation: String!
+    name: String!
+    stand: String!
+    lang: Lang!
+  }
+
+  type InfoPortfolio{
+    title: String!
+    text: String!
+    img: String!
+    lang: Lang!
+    more: String
+    name: String!
+  }
+
+  type Portfolio{
+    _id: String
+    portfolio: InfoPortfolio!
+  }
+
+  type AboutMe{
+    _id: String
+    aboutMe: InfoAboutMe!
   }
 
   type Skills{
@@ -32,7 +58,9 @@ export const typeDefs = gql`
   type Query{
     allNav: [Nav]!
     allSkills: [Skills]!
-    findNavLang(lang: Lang): Nav!
+    findNavLang(lang: Lang!): Nav!
+    findAboutMeLang(lang: Lang!): AboutMe!
+    findPortfolioLang(lang: Lang!, name: String!): Portfolio!
   }
   type Mutation{
     addNavLang(
@@ -45,6 +73,20 @@ export const typeDefs = gql`
     addSkill(
       img: String!
       title: String!): Skills
+    addAboutMeLang(
+      presentation: String!
+      name: String!
+      stand: String!
+      lang: String!
+    ): AboutMe
+    addPortfolioLang(
+      name: String!
+      title: String!
+      text: String!
+      more: String
+      lang: Lang!
+      img: String!
+    ): Portfolio
   }
 
 `
