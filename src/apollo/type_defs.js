@@ -1,13 +1,30 @@
 import { gql } from 'apollo-server-micro';
 
 export const typeDefs = gql`
-  type Person {
-    name: String!
-    city: String!
+  type NavLeng{
+    home: String!
+    skills: String!
+    portfolio: String!
+    contact: String!
+    lang: String!
   }
-  type Query {
-    personCount: Int!
-    allPersons: [Person]!
-    findPerson(name: String!) : Person
+
+  type Nav{
+    _id: String
+    nav: NavLeng!
   }
+  
+  type Query{
+    allNav: [Nav]!
+  }
+  type Mutation{
+    addNavLang(
+      home: String!
+      skills: String!
+      portfolio: String!
+      contact: String!
+      lang: String!
+    ): Nav
+  }
+
 `

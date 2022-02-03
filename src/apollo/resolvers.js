@@ -1,27 +1,16 @@
-import Home from "../models/home"
+import Header from "../models/Header"
 import "../utils/mongoose"
-const persons = [
-    {
-        name: "Midu",
-        city: "Barcelona"
-    },
-    {
-        name: "Youseff",
-        city: "Mataro"
-    },
-    {
-        name: "Itzi",
-        city: "Ibiza"
-    }
-  ];
+
 export const resolvers = {
     Query: {
-        personCount: () => Home.collection.countDocuments(),
-        allPersons: async(root,args) => Home.find({}),
-        findPerson: (root, args) => {
-        const {name} = args
-        return Home.findOne({name})
-        }
+        allNav: async (root,args) => Header.find(), 
     },
+    Mutation: {
+        addNavLang: async (root, args) => {
+            const newNav = new Header({nav:{...args}})
+            return newNav.save()
+        }
+    }
+
     
 }

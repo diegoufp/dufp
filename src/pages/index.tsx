@@ -7,9 +7,14 @@ import Link from 'next/link'
 
 
 const Home: NextPage = () => {
-  
-  return <div>Hola</div>
-    
+  return (
+    <>
+    <Head>
+      <title>dufp</title>
+    </Head>
+    <div>hola</div>
+    </>
+  )
 }
 
 
