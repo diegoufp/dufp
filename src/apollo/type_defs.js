@@ -1,7 +1,12 @@
 import { gql } from 'apollo-server-micro';
 
 export const typeDefs = gql`
-  type NavLeng{
+  enum Lang{
+    en
+    es
+  }
+
+  type NavLang{
     home: String!
     skills: String!
     portfolio: String!
@@ -11,11 +16,12 @@ export const typeDefs = gql`
 
   type Nav{
     _id: String
-    nav: NavLeng!
+    nav: NavLang!
   }
   
   type Query{
     allNav: [Nav]!
+    findNavLang(lang: Lang): Nav!
   }
   type Mutation{
     addNavLang(

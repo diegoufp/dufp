@@ -12,12 +12,3 @@ const headerSchema = new Schema({
 
 export default models.Home || model("Header", headerSchema);
 
-/*
-{
-  "home": "Inicio",
-  "skills": "habilidades",
-  "portfolio": "portafolio",
-  "contact": "contacto",
-  "lang": "es"
-}
-*/
