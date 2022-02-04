@@ -25,6 +25,31 @@ const headerSchema = new Schema({
         lang: String,
         more: String,
         name: String,
+    },
+    required: {
+        form: String,
+        name: String,
+        email: String,
+        subject: String,
+        comments: String,
+        lang: String
+    },
+    regex: {
+        form: String,
+        name: String,
+        email: String,
+        subject: String,
+        comments: String,
+        lang: String
+    },
+    placeholder: {
+        form: String,
+        name: String,
+        email: String,
+        subject: String,
+        comments: String,
+        lang: String,
+        submit: String
     }
 })
 

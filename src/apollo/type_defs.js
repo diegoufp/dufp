@@ -1,9 +1,54 @@
 import { gql } from 'apollo-server-micro';
 
 export const typeDefs = gql`
+
   enum Lang{
     en
     es
+  }
+
+  type InfoRequired{
+    form: String!
+    name: String!
+    email: String!
+    subject: String
+    comments: String!
+    lang: Lang!
+  }
+
+  type Required{
+    _id: String
+    required: InfoRequired!
+  }
+
+  type InfoRegex{
+    form: String!
+    name: String!
+    email: String!
+    subject: String
+    comments: String!
+    lang: Lang!
+  }
+
+  type Regex{
+    _id: String
+    regex: InfoRegex!
+  }
+
+
+  type InfoPlaceholder{
+    form: String!
+    name: String!
+    email: String!
+    subject: String
+    comments: String!
+    lang: Lang!
+    submit: String!
+  }
+  
+  type Placeholder{
+    _id: String
+    placeholder: InfoPlaceholder!
   }
 
   type NavLang{
@@ -61,6 +106,11 @@ export const typeDefs = gql`
     findNavLang(lang: Lang!): Nav!
     findAboutMeLang(lang: Lang!): AboutMe!
     findPortfolioLang(lang: Lang!, name: String!): Portfolio!
+    findRequiredLang(lang: Lang!, form: String!): Required!
+    findRegexLang(lang: Lang!, form: String!): Regex!
+    findPlaceholderLang(lang: Lang!, form: String!): Placeholder!
+
+
   }
   type Mutation{
     addNavLang(
@@ -87,6 +137,35 @@ export const typeDefs = gql`
       lang: Lang!
       img: String!
     ): Portfolio
+
+
+    addRequiredLang(
+      form: String!
+      name: String!
+      email: String!
+      subject: String
+      comments: String!
+      lang: Lang!
+    ): Required
+
+    addRegexLang(
+      form: String!
+      name: String!
+      email: String!
+      subject: String
+      comments: String!
+      lang: Lang!
+    ):Regex
+
+    addPlaceholderLang(
+      form: String!
+      name: String!
+      email: String!
+      subject: String
+      comments: String!
+      lang: Lang!
+      submit: String!
+    ):Placeholder
   }
 
 `
