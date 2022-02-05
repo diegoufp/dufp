@@ -1,4 +1,4 @@
-import Header from "../models/Header"
+import Home from "../models/Home"
 import "../utils/mongoose"
 
 export const resolvers = {

@@ -1,6 +1,6 @@
 import { Schema,model,models } from 'mongoose';
 
-const headerSchema = new Schema({
+const HomeSchema = new Schema({
     nav: {
         home: String,
         skills: String,
@@ -53,5 +53,5 @@ const headerSchema = new Schema({
     }
 })
 
-export default models.Home || model("Header", headerSchema);
+export default models.Home || model("Home", HomeSchema);
 

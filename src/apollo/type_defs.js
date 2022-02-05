@@ -109,8 +109,6 @@ export const typeDefs = gql`
     findRequiredLang(lang: Lang!, form: String!): Required!
     findRegexLang(lang: Lang!, form: String!): Regex!
     findPlaceholderLang(lang: Lang!, form: String!): Placeholder!
-
-
   }
   type Mutation{
     addNavLang(
