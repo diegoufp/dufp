@@ -1,25 +1,27 @@
 import Home from "../models/Home"
-import "../utils/mongoose"
+import {dbConect} from "../utils/mongoose"
+
+dbConect()
 
 export const resolvers = {
     Query: {
-        allNav: async (root,args) => await Header.find({nav:{$exists: true}})
+        allNav: async (root,args) => await Home.find({nav:{$exists: true}})
         , 
         findNavLang: async (root,args) =>{
-            return await Header.findOne({"nav.lang":args.lang})
+            return await Home.findOne({"nav.lang":args.lang})
         },
-        allSkills: async (root,args) => await Header.find({skill:{$exists: true}})
+        allSkills: async (root,args) => await Home.find({skill:{$exists: true}})
         ,
         findAboutMeLang: async (root,args) => {
-            return await Header.findOne({"aboutMe.lang": args.lang})
+            return await Home.findOne({"aboutMe.lang": args.lang})
         },
         findPortfolioLang: async(root,args) => {
-            const Portfolio = await Header.findOne({$and:[{"portfolio.name": args.name},{"portfolio.lang": args.lang}]});
+            const Portfolio = await Home.findOne({$and:[{"portfolio.name": args.name},{"portfolio.lang": args.lang}]});
             if(!Portfolio) return null;
             return Portfolio;
         },
         findRequiredLang: async (root,args) => {
-            const Required = await Header.findOne({
+            const Required = await Home.findOne({
                 $and:[
                     {"required.lang": args.lang},
                     {"required.form": args.form}
@@ -29,7 +31,7 @@ export const resolvers = {
             return Required
         },
         findRegexLang: async (root,args) => {
-            const Regex = await Header.findOne({
+            const Regex = await Home.findOne({
                 $and:[
                     {"regex.lang": args.lang},
                     {"regex.form": args.form}
@@ -39,7 +41,7 @@ export const resolvers = {
             return Regex
         },
         findPlaceholderLang: async (root,args) => {
-            const Placeholder = await Header.findOne({
+            const Placeholder = await Home.findOne({
                 $and:[
                     {"placeholder.lang": args.lang},
                     {"placeholder.form": args.form}
@@ -51,31 +53,31 @@ export const resolvers = {
     },
     Mutation: {
         addNavLang: (root, args) => {
-            const newNav = new Header({nav:{...args}})
+            const newNav = new Home({nav:{...args}})
             return newNav.save()
         },
         addSkill:(root,args) => {
-            const newSkill = new Header({skill:{...args}})
+            const newSkill = new Home({skill:{...args}})
             return newSkill.save()
         },
         addAboutMeLang: (root,args) => {
-            const newAboutMe = new Header({aboutMe:{...args}})
+            const newAboutMe = new Home({aboutMe:{...args}})
             return newAboutMe.save()
         },
         addPortfolioLang: (root,args) => {
-            const newPortfolio = new Header({portfolio:{...args}})
+            const newPortfolio = new Home({portfolio:{...args}})
             return newPortfolio.save()
         },
         addRequiredLang: (root,args) => {
-            const newRequired = new Header({required: {...args}})
+            const newRequired = new Home({required: {...args}})
             return newRequired.save()
         },
         addRegexLang: (root,args) => {
-            const newRegex = new Header({regex: {...args}})
+            const newRegex = new Home({regex: {...args}})
             return newRegex.save()
         },
         addPlaceholderLang: (root,args) => {
-            const newPlaceholder = new Header({placeholder: {...args}})
+            const newPlaceholder = new Home({placeholder: {...args}})
             return newPlaceholder.save()
         }
 

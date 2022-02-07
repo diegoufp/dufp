@@ -1,6 +1,6 @@
 import {connect,connection} from "mongoose";
 
-/*const conn = {
+const conn = {
     isConnected: false
   }
   
@@ -12,8 +12,6 @@ export async function dbConect(){
 
     conn.isConnected = db.connections[0].readyState;
 
-    console.log(db.connection.db.databaseName)
-
 }
 
 connection.on("connected", ()=>{
@@ -23,12 +21,12 @@ connection.on("connected", ()=>{
 connection.on("error", (err)=>{
     console.log(err)
 })
-*/
 
+/*
 connect(`${process.env.DB_URI}`)
 .then(()=> {
     console.log("connected to Mongodb")
 }).catch(error =>{
-    console.error(error.message)
+    console.error("error mongod")
 })
-
+*/

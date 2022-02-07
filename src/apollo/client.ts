@@ -46,3 +46,11 @@ export function useApollo(initialState) {
   return store
 }
 */
+import {ApolloClient,InMemoryCache,HttpLink} from "@apollo/client";
+
+const uri = process.env.URI_CLIENT
+
+export const client = new ApolloClient({
+  cache: new InMemoryCache(),
+  link: new HttpLink({uri})
+});
