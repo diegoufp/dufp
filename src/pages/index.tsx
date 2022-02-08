@@ -3,11 +3,9 @@ import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
 
-
-
-
-
 const Home: NextPage = () => {
+
+
   return (
     <>
     <Head>
@@ -17,6 +15,8 @@ const Home: NextPage = () => {
     </>
   )
 }
+
+
 
 
 export default Home;
