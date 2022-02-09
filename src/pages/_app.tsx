@@ -6,13 +6,11 @@ import { client } from 'apollo/client';
 
 function MyApp({ Component, pageProps,}: AppProps) {
   
-
   return (
       <ApolloProvider client={client}>
         <Header/>
         <Component {...pageProps} />
       </ApolloProvider>
-
   )
 }
 

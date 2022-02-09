@@ -48,7 +48,7 @@ export function useApollo(initialState) {
 */
 import {ApolloClient,InMemoryCache,HttpLink} from "@apollo/client";
 
-const uri = process.env.URI_CLIENT;
+const uri = 'http://localhost:3000/api/graphql';
 
 export const client = new ApolloClient({
   cache: new InMemoryCache(),
