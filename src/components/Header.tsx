@@ -7,11 +7,19 @@ import { useEffect, useState } from "react";
 const Header = () => {
     const [lang, setLang] = useState("es");
     const [nav, setNav] = useState();
+    
     const {data,error,loading} = useQuery(NAV_LANG, {variables:{lang}});
-
+    
+    const handleLang = (e) =>{
+        if(e.target.checked){
+            setLang("en")
+        }else{
+            setLang("es")
+        }
+    } 
     useEffect(() => {
         setNav(data)
-    }, [loading])
+    }, [loading,data])
     
     if(!loading && nav){ 
         const {contact, home, portfolio, skills, lang} = nav.findNavLang.nav;
@@ -36,6 +44,9 @@ const Header = () => {
                             <Link href="/contact"><a className="text-lg">{contact}</a></Link>
                         </li>
                     </ul>
+                    <div className="options">
+                        <input type="checkbox" name="lang" id="lang-check" onClick={handleLang} defaultChecked={lang === "en" ? true : false}/>
+                    </div>
                 </nav>
             </header>
         )
@@ -47,3 +58,6 @@ const Header = () => {
 }
 
 export default Header;
+/*
+                        <input type="checkbox" name="lang" id="lang-check" onClick={handleLang}/>
+*/
