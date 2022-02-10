@@ -1,12 +1,20 @@
 import { useQuery } from "@apollo/client";
 import { NAV_LANG } from "apollo/querys/homeQuerys";
 import Link from 'next/link'
+import { useEffect, useState } from "react";
 
 
 const Header = () => {
-    const {data,error,loading} = useQuery(NAV_LANG, {variables:{lang:"es"}});
-    if(!loading){ 
-        const {findNavLang:{_id, nav:{contact, home, lang, portfolio, skills}}} = data;
+    const [lang, setLang] = useState("es");
+    const [nav, setNav] = useState();
+    const {data,error,loading} = useQuery(NAV_LANG, {variables:{lang}});
+
+    useEffect(() => {
+        setNav(data)
+    }, [loading])
+    
+    if(!loading && nav){ 
+        const {contact, home, portfolio, skills, lang} = nav.findNavLang.nav;
 
         return (
             <header className="fixed z-50 top-0 w-screen text-gray-700 h-16 font-open">
