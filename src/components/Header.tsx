@@ -44,8 +44,8 @@ const Header = () => {
                             <Link href="/contact"><a className="text-lg">{contact}</a></Link>
                         </li>
                     </ul>
-                    <div className="options">
-                        <input type="checkbox" name="lang" id="lang-check" onClick={handleLang} defaultChecked={lang === "en" ? true : false}/>
+                    <div className="flex w-1/12 relative flex-row justify-evenly h-full items-center  ">
+                        <input className="flex relative bg-slate-200 w-8 h-4 appearance-none outline-none rounded-lg after:bg-slate-200 file: after:absolute after:w-4 after:h-4 after:rounded-full after:top-0 after:left-0 after:checked:left-4 shadow-inner after:shadow" type="checkbox" name="lang" id="lang-check" onClick={handleLang} defaultChecked={lang === "en" ? true : false}/>
                     </div>
                 </nav>
             </header>
@@ -59,5 +59,5 @@ const Header = () => {
 
 export default Header;
 /*
-                        <input type="checkbox" name="lang" id="lang-check" onClick={handleLang}/>
+<input type="checkbox" name="lang" id="lang-check" onClick={handleLang}/>
 */
