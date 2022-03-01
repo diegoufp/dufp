@@ -28,20 +28,20 @@ const Header = () => {
             <header className="fixed z-50 top-0 w-screen text-gray-700 h-16 font-open">
                 <nav className="w-full h-full flex flex-row justify-around shadow-md bg-white after:absolute after:w-full after:h-full after:top-0 after:z-1 after:blur after:bg-gradient-to-r after:from-rgb-7 after:to-rgb-9">
                     <div className="m-auto">
-                        <Link href="/"><a className="text-3xl text-center">dufp</a></Link>
+                        <a className="text-3xl text-center">dufp</a>
                     </div>
                     <ul className="m-auto flex flex-row justify-evenly w-2/5 h-full relative">
                         <li className="w-1/5 h-2/3 m-auto flex items-center rounded-2xl justify-center hover:shadow-inner hover:bg-gradient-to-tr hover:from-white hover:to-gray-100">
-                            <Link href="/"><a className="text-lg">{home}</a></Link>
+                            <a href="#home" className="text-lg">{home}</a>
                         </li>
                         <li className="w-1/5 h-2/3 m-auto flex items-center rounded-2xl justify-center hover:shadow-inner hover:bg-gradient-to-tr hover:from-white hover:to-gray-100">
-                            <Link href="/skills"><a className="text-lg">{skills}</a></Link>
+                            <a href="#skills" className="text-lg">{skills}</a>
                         </li>
                         <li className="w-1/5 h-2/3 m-auto flex items-center rounded-2xl justify-center hover:shadow-inner hover:bg-gradient-to-tr hover:from-white hover:to-gray-100">
-                            <Link href="/portfolio"><a className="text-lg">{portfolio}</a></Link>
+                            <a href="#portfolio" className="text-lg">{portfolio}</a>
                         </li>
                         <li className="w-1/5 h-2/3 m-auto flex items-center rounded-2xl justify-center hover:shadow-inner hover:bg-gradient-to-tr hover:from-white hover:to-gray-100">
-                            <Link href="/contact"><a className="text-lg">{contact}</a></Link>
+                            <a href="#contact" className="text-lg">{contact}</a>
                         </li>
                     </ul>
                     <div className="flex w-1/12 relative flex-row justify-evenly h-full items-center  ">
