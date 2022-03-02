@@ -4,7 +4,8 @@ import Link from 'next/link'
 import { useEffect, useState } from "react";
 
 
-const Header = () => {
+const Header = ({info,handleLang}) => {
+    /*
     const [lang, setLang] = useState("es");
     const [nav, setNav] = useState();
     
@@ -20,9 +21,9 @@ const Header = () => {
     useEffect(() => {
         setNav(data)
     }, [loading,data])
-    
-    if(!loading && nav){ 
-        const {contact, home, portfolio, skills, lang} = nav.findNavLang.nav;
+    */
+    if(info){ 
+        const {contact, home, portfolio, skills, lang} = info.findNavLang.nav;
 
         return (
             <header className="fixed z-50 top-0 w-screen text-gray-700 h-16 font-open">
@@ -45,7 +46,7 @@ const Header = () => {
                         </li>
                     </ul>
                     <div className="flex w-1/12 relative flex-row justify-evenly h-full items-center  ">
-                        <input className="flex relative bg-slate-200 w-8 h-4 appearance-none outline-none rounded-lg after:bg-slate-200 file: after:absolute after:w-4 after:h-4 after:rounded-full after:top-0 after:left-0 after:checked:left-4 shadow-inner after:shadow" type="checkbox" name="lang" id="lang-check" onClick={handleLang} defaultChecked={lang === "en" ? true : false}/>
+                        <input className="flex relative bg-slate-200 w-8 h-4 appearance-none outline-none rounded-lg after:bg-white file: after:absolute after:w-4 after:h-4 after:rounded-full after:top-0 after:left-0 after:checked:left-4 shadow-inner after:shadow" type="checkbox" name="lang" id="lang-check" onClick={handleLang} defaultChecked={lang === "en" ? true : false}/>
                     </div>
                 </nav>
             </header>
