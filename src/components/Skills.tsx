@@ -32,3 +32,42 @@ const Skills = () => {
 }
 
 export default Skills; */
+
+import Image from 'next/image';
+import dynamic from 'next/dynamic'
+
+const Card = dynamic(()=> import("components/Carta"))
+
+
+const Skills = ({info}) => {
+
+
+    if(info){
+
+        
+        return (
+            <div id='skill' className='w-full h-screen relative '>
+               <Card info={info}/>
+            </div>
+        )
+    }
+    
+
+    return (    
+        <div></div>
+    )
+    
+}
+
+export default Skills;
+
+/*
+ {
+                info.allSkills.map(({skill,_id})=>{
+                    <div key={_id}>
+                        <Image src={skill.img} alt={skill.title}/>
+                        <h4>{skill.title}</h4>
+                    </div>
+                })
+            }
+            */
