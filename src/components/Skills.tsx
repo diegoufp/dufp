@@ -1,37 +1,3 @@
-/*
-import React,{ useContext }  from 'react';
-import "../css/Skills.css";
-import LanguageContext from '../contexts/LanguageContext';
-import ThemeContext from '../contexts/ThemeContext';
-import Card from '../components/Card';
-
-const Skills = () => {
-    const {theme} = useContext(ThemeContext);
-    const {texts,icons} = useContext(LanguageContext);
-    return (
-        <div className="main__skills" id="skills">
-            <div className="main__skills-information">
-                <div className="main__skills-title">
-                    <h2>{texts.skills}</h2>
-                </div>
-                <div className="main__skills-cards">
-                    <Card img={icons.github.img} title={icons.github.title}/>
-                    <Card img={icons.linux.img} title={icons.linux.title}/>
-                    <Card  img={icons.sql.img} title={icons.sql.title}/>
-                    <Card img={icons.html.img} title={icons.html.title}/>
-                    <Card img={icons.css.img} title={icons.css.title}/>
-                    <Card img={icons.javascript.img} title={icons.javascript.title}/>
-                    <Card img={icons.python.img} title={icons.python.title}/>
-                    <Card img={icons.react.img} title={icons.react.title}/>
-                    <Card img={icons.mongo.img} title={icons.mongo.title}/>
-                    <Card img={icons.git.img} title={icons.git.title}/>
-                </div>
-            </div>
-        </div>
-    )
-}
-
-export default Skills; */
 
 import Image from 'next/image';
 import dynamic from 'next/dynamic'
@@ -39,15 +5,20 @@ import dynamic from 'next/dynamic'
 const Card = dynamic(()=> import("components/Carta"))
 
 
-const Skills = ({info}) => {
+const Skills = ({info}:{info:{allSkills:{skill:{title:String,img:String},_id:undefined}}}) => {
 
 
     if(info){
 
-        
+        const skills = [...info.allSkills]
         return (
-            <div id='skill' className='w-full h-screen relative '>
-               <Card info={info}/>
+            <div id='skill' className='w-full min-h-screen h-auto relative grid gap-5 p-20'>
+                <h2 className='m-auto text-center text-4xl font-medium font-sans text-gray-700'>Skills</h2>
+                <section className='grid min-w-max m-auto w-3/5 h-auto min-h-4/5 gap-12 grid-cols-[repeat(auto-fill,9rem)] items-center p-10 justify-around grid-flow-row-dense'>
+                {skills && (
+                    skills.map(({skill,_id})=> <Card key={_id} img={skill.img} title={skill.title}/>)
+                )}
+                </section>
             </div>
         )
     }
@@ -60,14 +31,4 @@ const Skills = ({info}) => {
 }
 
 export default Skills;
-
-/*
- {
-                info.allSkills.map(({skill,_id})=>{
-                    <div key={_id}>
-                        <Image src={skill.img} alt={skill.title}/>
-                        <h4>{skill.title}</h4>
-                    </div>
-                })
-            }
-            */
+//

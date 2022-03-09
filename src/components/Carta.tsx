@@ -1,32 +1,10 @@
-import Image from 'next/image';
-/*
+
 const Card = ({img, title}:{img: String, title: String}) => {
-   
     return (
-        <section>
-            <figure >
-            <Image src={img} alt={title}/>
-            <figcaption>{title}</figcaption>
+            <figure className=" bg-white relative grid w-32 rounded-lg shadow-lg p-3 after:absolute after:w-full after:h-full after:top-0 after:z-1 after:blur after:bg-gradient-to-r after:from-rgb-7 after:to-rgb-9">
+            <img  src={img} alt={title}/>
+            <figcaption className="text-center font-sans text-lg font-semibold text-gray-600">{title}</figcaption>
             </figure>
-        </section>
-    )
-}
-
-export default Card;
-*/
-
-import React from 'react';
-
-const Card = ({info}) => {
-
-    
-
-    return (
-        <section>
-            <figure >
-    
-            </figure>
-        </section>
     )
 }
 
