@@ -36,3 +36,32 @@ const Contact = () => {
 }
 
 export default Contact; */
+
+const Contact = ({required,regex,placeholder}) => {
+    
+    if( required && regex && placeholder){
+
+        const Required = {...required.findRequiredLang.required};
+        const Regex = {...regex.findRegexLang.regex};
+        const Placeholder = {...placeholder.findPlaceholderLang.placeholder}
+        console.log(Placeholder)
+        return(
+            <div id="contact" className="w-full relative h-screen flex">
+                <div className="m-auto w-2/5 h-3/5 shadow">
+                <h2>Contact</h2>
+                <form>
+                    <input type="text" name="name" placeholder={Placeholder.name}/>
+                    <input type="email" name="email" placeholder={Placeholder.email} />
+                    <input type="text" name="subject" placeholder={Placeholder.subject}/>
+                    <textarea name="comments" cols="50" rows="5" placeholder={Placeholder.comments}></textarea>
+                    <input type="submit" value={Placeholder.submit} />
+                </form>
+                </div>
+            </div>
+        )
+    }
+
+    return(<div></div>)
+};
+
+export default Contact;
